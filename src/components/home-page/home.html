@@ -1,9 +1,9 @@
-<nav>
+<header class="home__panel">
   <gll-card params="locations: locations, map:map">
     <gll-search params="locations: locations, map:map"></gll-search>
     <!-- ko if: locations().length -->
     <gll-locations params="locations: locations"></gll-locations>
     <!-- /ko -->
   </gll-card>
-</nav>
+</header>
 <gll-map params="locations: locations, map: map"></gll-map>

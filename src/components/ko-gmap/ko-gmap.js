@@ -4,10 +4,10 @@ define(['knockout', 'jquery', 'text!./ko-gmap.html',  'async'], function(ko, $, 
 
   function createViewModel (params, componentInfo) {
     params.el = componentInfo.element
-    return new KoMapViewModel(params)
+    return new KoMap(params)
   }
 
-  function KoMapViewModel(params) {
+  function KoMap(params) {
     this.el = params.el
     this.apiKey = params.apiKey || ko.observable()
     this.libraries = params.zoom || ko.observable('places')
@@ -27,14 +27,14 @@ define(['knockout', 'jquery', 'text!./ko-gmap.html',  'async'], function(ko, $, 
     require(['async!' + mapApi], this.mapApiLoaded.bind(this))
   }
 
-  KoMapViewModel.prototype.mapApiLoaded = function () {
+  KoMap.prototype.mapApiLoaded = function () {
     var mapEl = this.el.getElementsByTagName('div')[0]
     this.map(new google.maps.Map(mapEl, this.getMapOptions()))
 
     $(this.el).trigger('ko-gmap-ready')
   }
 
-  KoMapViewModel.prototype.getMapOptions = function () {
+  KoMap.prototype.getMapOptions = function () {
     var mapOptions = {
       zoom: this.zoom(),
       center: new google.maps.LatLng(this.latitude(), this.longitude()),
@@ -43,7 +43,7 @@ define(['knockout', 'jquery', 'text!./ko-gmap.html',  'async'], function(ko, $, 
     return mapOptions
   }
 
-  KoMapViewModel.prototype.updateCenter = function () {
+  KoMap.prototype.updateCenter = function () {
     if (this.map()) {
       this.map().setCenter({ lat: this.latitude(), lng: this.longitude()})
     }

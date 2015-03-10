@@ -17,12 +17,12 @@ var requireJsRuntimeConfig = vm.runInNewContext(fs.readFileSync('src/app/require
         include: [
             'requireLib',
             'components/home-page/home',
-            'components/gll-locations/ViewModel',
+            'components/gll-locations/gll-locations',
             'components/gll-map/gll-map',
-            'components/gll-search/ViewModel',
+            'components/gll-search/gll-search',
             'components/ko-gmap/ko-gmap',
-            'components/ko-gmap-search/ViewModel',
-            'text!components/gll-card/view.html'
+            'components/ko-gmap-search/ko-gmap-search',
+            'text!components/gll-card/gll-card.html'
         ],
         insertRequire: ['app/startup'],
         bundles: {

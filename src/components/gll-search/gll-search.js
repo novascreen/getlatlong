@@ -1,7 +1,7 @@
-define(["knockout", "text!./view.html", 'app/location/Model'], function(ko, template, LocationModel) {
+define(["knockout", "text!./gll-search.html", 'app/location/Model'], function(ko, template, LocationModel) {
   'use strict';
 
-  function ViewModel(params) {
+  function GllSearch(params) {
     this.query = params.query || ko.observable('');
     this.result = params.result || ko.observable();
     this.map = params.map || ko.observable();
@@ -10,7 +10,7 @@ define(["knockout", "text!./view.html", 'app/location/Model'], function(ko, temp
     this.result.subscribe(this.onResultChange.bind(this))
   }
 
-  ViewModel.prototype = {
+  GllSearch.prototype = {
     onResultChange: function (location) {
       this.map().setCenter({ lat: location.latitude, lng: location.longitude })
       this.locations.push(new LocationModel({
@@ -19,6 +19,6 @@ define(["knockout", "text!./view.html", 'app/location/Model'], function(ko, temp
     }
   }
 
-  return { viewModel: ViewModel, template: template };
+  return { viewModel: GllSearch, template: template };
 
 });

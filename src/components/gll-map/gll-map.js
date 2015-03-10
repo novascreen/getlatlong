@@ -1,7 +1,7 @@
 define(["knockout", "text!./gll-map.html", 'app/location/Model'], function(ko, template, LocationModel) {
   'use strict';
 
-  function GllMapViewModel(params) {
+  function GllMap(params) {
     this.map = params.map || ko.observable()
     this.mapCenter = {
       latitude: ko.observable(0),
@@ -11,7 +11,7 @@ define(["knockout", "text!./gll-map.html", 'app/location/Model'], function(ko, t
     this.locations.subscribe(this.onLocationsChange.bind(this))
   }
 
-  GllMapViewModel.prototype = {
+  GllMap.prototype = {
     onMapReady : function() {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(this.onGotCurrentPosition.bind(this));
@@ -54,6 +54,6 @@ define(["knockout", "text!./gll-map.html", 'app/location/Model'], function(ko, t
     }
   }
 
-  return { viewModel: GllMapViewModel, template: template };
+  return { viewModel: GllMap, template: template };
 
 });
