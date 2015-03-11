@@ -1,6 +1,7 @@
 {
   "name": "getlatlong",
-  "version": "0.0.0",
+  "version": "0.1.0",
+  "license": "MIT",
   "devDependencies": {
     "gulp": "^3.6.2",
     "gulp-requirejs-bundler": "^0.1.1",
