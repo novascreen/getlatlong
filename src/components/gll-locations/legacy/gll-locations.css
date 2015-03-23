@@ -1,0 +1,27 @@
+.gll-locations__location {
+    position: relative;
+    clear: both;
+    margin: 20px 0 10px;
+    padding-left: 40px;
+}
+
+.gll-locations__index {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    color: #2196f3;
+}
+
+.gll-locations__field {
+    clear: both;
+
+    margin-bottom: 10px;
+}
+
+.gll-locations__field--col {
+    float: left;
+    clear: none;
+
+    width: 50%;
+}

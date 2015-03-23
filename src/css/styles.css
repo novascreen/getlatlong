@@ -4,20 +4,4 @@
 @import "../components/gll-map/gll-map.css";
 @import "../components/gll-search/gll-search.css";
 @import "../components/home-page/home.css";
-
-input {
-    display: block;
-
-    width: 100%;
-    padding-bottom: 1px;
-
-    border-width: 0 0 1px 0;
-}
-
-input:focus {
-    padding-bottom: 0;
-
-    border-color: #2196f3;
-    border-bottom-width: 2px;
-    outline: 0;
-}
+@import "form.css";

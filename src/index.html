@@ -7,16 +7,50 @@
     <meta name=viewport content="width=device-width, initial-scale=1">
     <!--[if IE 8]>
       <script src="bower_modules/html5shiv/dist/html5shiv.js"></script>
+      <script>(function(global) {
+  'use strict';
+  global.console = global.console || {};
+  var con = global.console;
+  var prop, method;
+  var empty = {};
+  var dummy = function() {};
+  var properties = 'memory'.split(',');
+  var methods = ('assert,clear,count,debug,dir,dirxml,error,exception,group,' +
+     'groupCollapsed,groupEnd,info,log,markTimeline,profile,profiles,profileEnd,' +
+     'show,table,time,timeEnd,timeline,timelineEnd,timeStamp,trace,warn').split(',');
+  while (prop = properties.pop()) if (!con[prop]) con[prop] = empty;
+  while (method = methods.pop()) if (!con[method]) con[method] = dummy;
+})(typeof window === 'undefined' ? this : window);</script>
     <![endif]-->
-    <!-- build:css -->
+
+    <!-- build:css css.legacy.css -->
+    <!--[if lt IE 9]>
+      <link href="bower_modules/components-bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <link href="css/styles.legacy.css" rel="stylesheet">
+    <![endif]-->
+    <!-- endbuild -->
+    <!-- build:css css.css -->
+    <!--[if gt IE 8]><!-->
       <link href="bower_modules/components-bootstrap/css/bootstrap.min.css" rel="stylesheet">
       <link href="css/styles.css" rel="stylesheet">
+    <!--<![endif]-->
     <!-- endbuild -->
-    <script src="//cdn.polyfill.io/v1/polyfill.min.js?features=Function.prototype.bind"></script>
-    <!-- build:js -->
+
+    <!--script src="//cdn.polyfill.io/v1/polyfill.min.js?features=Function.prototype.bind,Array.prototype.forEach"></script-->
+    <script src="//cdn.polyfill.io/v1/polyfill.min.js"></script>
+
+  <!-- build:js scripts.legacy.js -->
+  <!--[if lt IE 9]>
+      <script src="app/require.config.js"></script>
+      <script data-main="app/startup.legacy" src="bower_modules/requirejs/require.js"></script>
+  <![endif]-->
+  <!-- endbuild -->
+  <!-- build:js scripts.js -->
+  <!--[if gt IE 8]><!-->
       <script src="app/require.config.js"></script>
       <script data-main="app/startup" src="bower_modules/requirejs/require.js"></script>
-    <!-- endbuild -->
+  <!--<![endif]-->
+  <!-- endbuild -->
   </head>
   <body>
     <div id="page" class="container" data-bind="component: { name: route().page, params: route }"></div>

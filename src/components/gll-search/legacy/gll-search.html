@@ -1,4 +1,4 @@
 <label for="gll-search__input">Search or click on map to add marker</label>
 <input id="gll-search__input" class="gll-search__input" type="text" placeholder="Search..." 
   data-bind="value: query, hasFocus: true, event: { keypress: onKeyPress }">
-<ko-gmap-search params="query: query, result: result, map: map"></ko-gmap-search>
+<div class="ko-gmap-search" data-bind="component: { name: 'ko-gmap-search', params: { query: query, result: result, map: map } }"></div>

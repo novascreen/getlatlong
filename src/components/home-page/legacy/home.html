@@ -1,0 +1,9 @@
+<header class="home__panel">
+  <div class="gll-card" data-bind="component: { name: 'gll-card', params: { locations: locations, map:map } }">
+    <div class="gll-search" data-bind="component: { name: 'gll-search', params: { locations: locations, map:map } }"></div>
+    <!-- ko if: locations().length -->
+    <div class="gll-locations" data-bind="component: { name: 'gll-locations', params: { locations: locations } }"></div>
+    <!-- /ko -->
+  </div>
+</header>
+<div class="gll-map" data-bind="component: { name: 'gll-map', params: { locations: locations, map: map } }"></div>
